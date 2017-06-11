@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
 let app = express(),
-    homeController = require('./controllers/home'),
+    router = require('./config/routes'),
     i18n = require('./i18n/western-europe.json');
 
 // view engine setup
@@ -26,7 +26,7 @@ app.use(require('node-sass-middleware')({
     sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', homeController);
+app.use('/', router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
