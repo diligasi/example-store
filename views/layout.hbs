@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <!-- Import Google Icon Fonts -->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css' media="screen,projection" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="javascripts/materialize.min.js"></script>
+    <script type="text/javascript" src="javascripts/app.js"></script>
+  </head>
+  <body>
+
+  <nav class="blue-grey lighten-1" role="navigation">
+      <div class="nav-wrapper container">
+          <a id="logo-container" href="/" class="brand-logo">
+              <img class="main-app-logo" src="/images/logo.png" alt="Example Store" />
+          </a>
+          <ul class="right hide-on-med-and-down">
+              <li><a href="/preco">Preço</a></li>
+              <li><a href="/contato">Contato</a></li>
+              <li><a href="/sobre">Sobre</a></li>
+              <li><a href="/cadastro">Cadastre-se</a></li>
+          </ul>
+
+          <ul id="nav-mobile" class="side-nav">
+              <li><a href="/preco">Preço</a></li>
+              <li><a href="/contato">Contato</a></li>
+              <li><a href="/sobre">Sobre</a></li>
+              <li><a href="/cadastro">Cadastre-se</a></li>
+          </ul>
+          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      </div>
+  </nav>
+
+  <main>
+    {{{body}}}
+  </main>
+
+  <footer class="page-footer blue-grey lighten-1">
+      <div class="container">
+          <div class="row">
+              <div class="col l6 s12">
+                  <h5 class="white-text">Example Store</h5>
+                  <p class="grey-text text-lighten-4">Site de exemplo desacoplado da aplicação principal, foi desenvolvido com o intuito de testar o rastreamento de usuários.</p>
+
+
+              </div>
+              <div class="col l6 s12">
+                  <h5 class="white-text">Navegação</h5>
+                  <ul>
+                      <li><a class="white-text" href="/preco">Preço</a></li>
+                      <li><a class="white-text" href="/contato">Contato</a></li>
+                      <li><a class="white-text" href="/sobre">Sobre</a></li>
+                      <li><a class="white-text" href="/cadastro">Cadastro</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <div class="footer-copyright">
+          <div class="container">
+              User Tracking Challenge
+          </div>
+      </div>
+  </footer>
+  </body>
+
+
+</html>
