@@ -7,7 +7,7 @@
       e.preventDefault();
       var valid = true;
 
-      $(this).find(':input').each(function() {
+      $(this).find(':input[type!=hidden]').each(function() {
           if ($(this).val() === '') {
               valid = false;
               return valid;
