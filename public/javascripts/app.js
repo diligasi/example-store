@@ -5,10 +5,7 @@
 
     $(document).on('submit', 'form#contactForm', function(e) {
       e.preventDefault();
-      // var _url = 'http://192.168.0.111:3001/contacts',
-      var _url = 'https://dili-user-tracker.herokuapp.com/contacts',
-          valid = true,
-          emailValid = emailIsValid();
+      var valid = true;
 
       $(this).find(':input').each(function() {
           if ($(this).val() === '') {
@@ -17,32 +14,14 @@
           }
       });
 
-      if (valid && emailValid) {
-          $.ajax({
-              type: 'POST',
-              url: _url,
-              data: $(this).serialize(),
-              success: function(data) {
-                alert('Operação realizada com sucesso.');
-                window.location.reload();
-              },
-              error: function(el) {
-                console.log('***********************************');
-                console.log(JSON.stringify(el));
-                console.log('***********************************');
-              }
-          });
+      if (valid) {
+          validateEmailAndContinue($(this));
       } else {
-          if ($('#contact-email').val() === '') {
-              alert('Por favor preencha todos os campos abaixo.');
-          }
+          alert('Por favor preencha todos os campos abaixo.');
       }
     });
 
-    function emailIsValid() {
-        if ($('#contact-email').val() === '') {
-            return false;
-        }
+    function validateEmailAndContinue($form) {
         $.ajax({
             type: 'POST',
             // url: 'http://192.168.0.111:3001/verify_email',
@@ -50,12 +29,24 @@
             data: { email: $('#contact-email').val() },
             success(data) {
                 if (data.valid) {
-                    $('#send-contact').prop('disabled', false);
-                    return true;
+                    // var _url = 'http://192.168.0.111:3001/contacts';
+                    var _url = 'https://dili-user-tracker.herokuapp.com/contacts';
+                    $.ajax({
+                        type: 'POST',
+                        url: _url,
+                        data: $form.serialize(),
+                        success: function(data) {
+                            alert('Operação realizada com sucesso.');
+                            window.location.reload();
+                        },
+                        error: function(el) {
+                            console.log('***********************************');
+                            console.log(JSON.stringify(el));
+                            console.log('***********************************');
+                        }
+                    });
                 } else {
                     alert('E-mail já cadastrado.');
-                    $('#send-contact').prop('disabled',true);
-                    return false;
                 }
             },
             error(el) {
