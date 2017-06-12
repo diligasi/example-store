@@ -6,7 +6,7 @@
     $(document).on('submit', 'form#contactForm', function(e) {
       e.preventDefault();
       // var _url = 'http://192.168.0.111:3001/contacts';
-      var _url = 'https://https://dili-user-tracker.herokuapp.com/contacts';
+      var _url = 'https://dili-user-tracker.herokuapp.com/contacts';
       $.ajax({
           type: 'POST',
           url: _url,
